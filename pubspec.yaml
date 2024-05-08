@@ -39,6 +39,7 @@ dependencies:
 
   intl:
   google_fonts:
+  flutter_dotenv: ^5.1.0
 
 
 dev_dependencies:
@@ -53,6 +54,9 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  cupertino_icons: ^1.0.6
+  zego_uikit_prebuilt_video_conference: ^2.7.4
+  webview_flutter: ^2.0.13
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -67,9 +71,12 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/woman (1).png
-    - assets/images/image-transformed.png
-    - assets/images/nabeehLogo.webp
+    - .env
+    - assets/image/java.png
+    - assets/image/software.png
+    - assets/image/web.jpeg
+    - assets/image/nabeehLogo.webp
+    -  assets/image/nabeehLogo-trans.webp
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:nabeeh/screens/classroomHomePage.dart';
 
-class homePage extends StatefulWidget {
+import '../widget/navBarWidget.dart';
+
+class HomePage extends StatefulWidget {
   @override
-  _homePageState createState() => _homePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _homePageState extends State<homePage> {
+class _HomePageState extends State<HomePage> {
   var height, width;
 
   @override
@@ -15,76 +18,66 @@ class _homePageState extends State<homePage> {
     width = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(60), // Set your preferred AppBar height
+        child: AppBar(
+          // title: const Text("Nabeeh"),
+          backgroundColor: const Color(0xFFA1CACC),
+        ),
+      ),
       body: Container(
-        color: Color(0xFFb18ce0),
+        color: Color(0xFFA1CACC),
         height: height,
         width: width,
         child: Column(
           children: [
             Container(
               decoration: BoxDecoration(),
-              height: height * 0.25,
+              height: height * 0.15, // Adjust the height as needed
               width: width,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(top: 35, left: 20, right: 20),
+                    padding: EdgeInsets.only(top: 10, left: 80),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      // Aligns children along the main axis
                       children: [
-                        GestureDetector(
-                          onTap: () {
-                            Scaffold.of(context).openDrawer();
-                          },
-                          child: Icon(
-                            Icons.sort,
-                            color: Colors.white,
-                            size: 40,
-                          ),
-                        ),
-                        Container(
-                          height: 50,
-                          width: 50,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: Color(0xFF7fd0d4),
-                            image: DecorationImage(
-                              image: AssetImage(
-                                'images/woman (1).png',
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Welcome, Dr.Nadia",
+                              style: TextStyle(
+                                fontSize: 30,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                                letterSpacing: 1,
                               ),
                             ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              "Last Update ${DateFormat.yMMMMd().format(DateTime.now())}",
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                                letterSpacing: 1,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(right: 70), // Added padding
+                          child: Icon(
+                            // Add the person icon
+                            IconData(0xee35, fontFamily: 'MaterialIcons'),
+                            color: Colors.black,
+                            size: 60,
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      top: 20,
-                      left: 30,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Welcome Dana",
-                          style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.black87,
-                              fontWeight: FontWeight.w500,
-                              letterSpacing: 1),
-                        ),
-                        SizedBox(
-                          height: 2,
-                        ),
-                        Text(
-                          "Last Update ${DateFormat.yMMMMd().format(DateTime.now())}",
-                          style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.grey[700],
-                              fontWeight: FontWeight.w500,
-                              letterSpacing: 1),
                         ),
                       ],
                     ),
@@ -92,155 +85,60 @@ class _homePageState extends State<homePage> {
                 ],
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black26,
-                      offset: Offset(0, 2),
-                      blurRadius: 6.0,
-                    ),
-                  ]),
-              height: height * 0.75,
-              width: width,
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 40),
-                        padding: EdgeInsets.only(bottom: 450),
-                        child: Column(
-                          //today
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [],
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          margin: const EdgeInsets.only(
-                              top: 80, right: 55, bottom: 10),
-                          padding:
-                              EdgeInsets.only(top: 50, right: 100, left: 50),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black26,
-                                offset: Offset(0, 15),
-                                blurRadius: 16.0,
-                              ),
-                            ],
-                          ),
-                          child: Column(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                  ),
+                ),
+                child: ListView(
+                  children: [
+                    Container(
+                      child: Column(
+                        children: [
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Center(
-                                child: Image(
-                                  image: AssetImage('images/nabeehLogo.webp'),
-                                  height: 100,
-                                  width: 900,
-                                ),
+                              Image.asset(
+                                'assets/image/nabeehLogo.webp',
+                                height: 300,
+                                width: 300,
                               ),
-                              // SizedBox(height: 20),
-                              Padding(
-                                padding: const EdgeInsets.all(50.0),
-                                child: Center(
-                                  child: Text(
-                                    "The idea of our project (Analyze Student Engagement in e-Learning - Nabeeh), aims to use computer vision techniques to track students' facial expressions, eye movements, and head pose during online lectures. By analyzing these indicators, the project aims to provide insights into student engagement and stress levels, improve the learning experience, and enhance the efficiency of online education.",
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.black87,
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                    textAlign: TextAlign.center,
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  "The idea of our project (Analyze Student Engagement in e-Learning - Nabeeh),\n"
+                                      " aims to use computer vision techniques to track students' facial expressions,\n"
+                                      " eye movements, and head pose during online lectures. By analyzing these indicators,\n"
+                                      " the project aims to provide insights into student engagement and stress levels,\n"
+                                      " improve the learning experience, and enhance the efficiency of online education.",
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.black87,
                                   ),
+                                  textAlign: TextAlign.center,
                                 ),
                               ),
                             ],
                           ),
-                        ),
+                        ],
                       ),
-                    ],
-                  ),
-                  // Add your custom widgets here
-                ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
         ),
       ),
-      drawer: Drawer(
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView(
-                padding: EdgeInsets.zero,
-                children: [
-                  DrawerHeader(
-                    decoration: BoxDecoration(
-                      color: Color(0xFF885ebd),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 30, right: 20),
-                          child: Image(
-                            image: AssetImage('images/nabeehLogo.webp'),
-                            height: 70,
-                            width: 300,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.home),
-                    title: Text('Home Page'),
-                    onTap: () {
-                      // Add your logic here
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text('My Profile'),
-                    onTap: () {
-                      // Add your logic here
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.class_),
-                    title: Text('Classroom'),
-                    onTap: () {
-                      // Add your logic here
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.dashboard),
-                    title: Text('Dashboard'),
-                    onTap: () {
-                      // Add your logic here
-                    },
-                  ),
-                ],
-              ),
-            ),
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
-              onTap: () {
-                // Add your logic here
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: CustomDrawer(),
     );
   }
 }
