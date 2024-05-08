@@ -54,7 +54,6 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
-  cupertino_icons: ^1.0.6
   zego_uikit_prebuilt_video_conference: ^2.7.4
   webview_flutter: ^2.0.13
 
