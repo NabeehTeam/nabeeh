@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "51166133579",
+    "project_id": "nabeeh-f5e39",
+    "storage_bucket": "nabeeh-f5e39.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51166133579:android:94fa63b3be6f065008bcce",
+        "android_client_info": {
+          "package_name": "nabeeh.com.nabeeh"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLSeYkKlZwnhUsVfC81BWXdrrhDNYh7N8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
